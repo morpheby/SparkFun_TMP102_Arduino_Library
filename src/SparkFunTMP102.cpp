@@ -78,7 +78,7 @@ float TMP102::readTempC(void)
   if (registerBytes[1] & 0x01) // 13 bit mode
   {
     // Combine bytes to create a signed int
-    digitalTemp = ((registerByte[0]) << 5) | (registerByte[1] >> 3);
+    digitalTemp = ((registerBytes[0]) << 5) | (registerBytes[1] >> 3);
     // Temperature data can be + or -, if it should be negative,
     // convert 13 bit to 16 bit and use the 2s compliment.
     if (digitalTemp > 0xFFF)
