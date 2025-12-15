@@ -23,6 +23,7 @@ Distributed as-is; no warranty is given.
 #endif
 
 #include <Wire.h>
+#include <array>
 
 
 class TMP102
@@ -83,7 +84,7 @@ class TMP102
 		int _address; // Address of Temperature sensor (0x48,0x49,0x4A,0x4B)
 		
 		void openPointerRegister(uint8_t pointerReg); // Changes the pointer register
-		uint8_t readRegister(bool registerNumber);	// reads 1 byte of from register
+		std::array<uint8_t, 2> readRegister();
 };
 
 
