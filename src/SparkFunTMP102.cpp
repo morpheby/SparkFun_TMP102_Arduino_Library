@@ -103,7 +103,7 @@ float TMP102::readTempC(void)
 
 float TMP102::readTempF(void)
 {
-  return readTempC() * 9.0 / 5.0 + 32.0;
+  return readTempC() * 9.0f / 5.0f + 32.0f;
 }
 
 void TMP102::setConversionRate(uint8_t rate)
@@ -262,7 +262,7 @@ void TMP102::setLowTempC(float temperature)
   {
     temperature = 150.0f;
   }
-  if (temperature < -55.0)
+  if (temperature < -55.0f)
   {
     temperature = -55.0f;
   }
@@ -276,7 +276,7 @@ void TMP102::setLowTempC(float temperature)
                                                 // 1 - temp data will be 13 bits
 
   // Convert analog temperature to digital value
-  temperature = temperature / 0.0625;
+  temperature = temperature / 0.0625f;
 
   // Split temperature into separate bytes
   if (extendedMode) // 13-bit mode
@@ -308,7 +308,7 @@ void TMP102::setHighTempC(float temperature)
   {
     temperature = 150.0f;
   }
-  if (temperature < -55.0)
+  if (temperature < -55.0f)
   {
     temperature = -55.0f;
   }
@@ -322,7 +322,7 @@ void TMP102::setHighTempC(float temperature)
                                                 // 1 - temp data will be 13 bits
 
   // Convert analog temperature to digital value
-  temperature = temperature / 0.0625;
+  temperature = temperature / 0.0625f;
 
   // Split temperature into separate bytes
   if (extendedMode) // 13-bit mode
@@ -452,12 +452,12 @@ float TMP102::readHighTempC(void)
 
 float TMP102::readLowTempF(void)
 {
-  return readLowTempC() * 9.0 / 5.0 + 32.0;
+  return readLowTempC() * 9.0f / 5.0f + 32.0f;
 }
 
 float TMP102::readHighTempF(void)
 {
-  return readHighTempC() * 9.0 / 5.0 + 32.0;
+  return readHighTempC() * 9.0f / 5.0f + 32.0f;
 }
 
 void TMP102::setFault(uint8_t faultSetting)
