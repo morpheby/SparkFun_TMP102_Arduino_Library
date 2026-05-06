@@ -361,7 +361,6 @@ float TMP102::readLowTempC(void)
   std::array<uint8_t, 2> registerBytes; // Store the data from the register here
   bool extendedMode;       // Store extended mode bit here 0:-55C to +128C, 1:-55C to +150C
   int16_t digitalTemp;     // Store the digital temperature value here
-  float temperature;       // Store the analog temperature value here
 
   // Check if temperature should be 12 or 13 bits
   openPointerRegister(CONFIG_REGISTER); // Read configuration register settings
@@ -400,7 +399,7 @@ float TMP102::readLowTempC(void)
     }
   }
   // Convert digital reading to analog temperature (1-bit is equal to 0.0625 C)
-  return digitalTemp * 0.0625;
+  return digitalTemp * 0.0625f;
 }
 
 float TMP102::readHighTempC(void)
@@ -408,7 +407,6 @@ float TMP102::readHighTempC(void)
   std::array<uint8_t, 2> registerBytes; // Store the data from the register here
   bool extendedMode;       // Store extended mode bit here 0:-55C to +128C, 1:-55C to +150C
   int16_t digitalTemp;     // Store the digital temperature value here
-  float temperature;       // Store the analog temperature value here
 
   // Check if temperature should be 12 or 13 bits
   openPointerRegister(CONFIG_REGISTER); // read configuration register settings
@@ -447,7 +445,7 @@ float TMP102::readHighTempC(void)
     }
   }
   // Convert digital reading to analog temperature (1-bit is equal to 0.0625 C)
-  return digitalTemp * 0.0625;
+  return digitalTemp * 0.0625f;
 }
 
 float TMP102::readLowTempF(void)
